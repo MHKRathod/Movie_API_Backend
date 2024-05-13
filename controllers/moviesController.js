@@ -1,5 +1,3 @@
-// movieController.js
-
 const { Op } = require('sequelize');
 const Movie = require('../model/movie.model');
 const Genre = require('../model/genre.model');
@@ -167,7 +165,7 @@ async function createOrFindEntities(entities, Model) {
 const getMovieByDirectorNAme = async (req, res) => {
     const { name } = req.params;
     try {
-        // Step 1: Find the movies directed by the director
+     
         const movies = await Movie.findAll({
             where: { director: { [Op.like]: `%${name}%` } },
             include: [

@@ -31,10 +31,7 @@ const addActor = async (req, res) => {
     const { name } = req.body; 
 
     try {
-        // Create the actor in the database
         const actor = await Actor.create({ name });
-
-        // Respond with the created actor object
         res.status(201).json({ actor });
     } catch (error) {
         console.error('Error adding actor:', error);
